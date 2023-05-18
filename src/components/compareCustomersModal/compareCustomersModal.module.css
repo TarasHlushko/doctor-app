@@ -1,0 +1,51 @@
+.title {
+    font-size: 2.5em;
+    color: #3a3a3a;
+    text-transform: uppercase;
+    font-weight: 600;
+    text-align: center;
+    margin: 0 0 20px;
+    letter-spacing: .1em;
+}
+
+.split {
+    display: flex;
+    gap: 30px;
+    width: 100%;
+    flex-wrap: wrap;
+}
+
+.wrap {
+    width: 48%;
+    padding: 2%;
+    height: 800px;
+    border: 2px solid gray;
+    border-radius: 20px;
+    flex-wrap: wrap;
+}
+
+.subTitle {
+    font-size: 2.5em;
+    color: #2a2a2a;
+    margin-bottom: 40px;
+    font-weight: 600;
+}
+
+.info {
+    display: flex;
+    gap: 30px;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.output {
+    margin-top: 30px;
+    display: flex;
+    gap: 30px;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.output :first-child {
+    width: 100%;
+}

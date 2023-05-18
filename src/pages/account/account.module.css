@@ -1,0 +1,50 @@
+.anotherWrap, .wrap {
+    width: 100%;
+    padding: 5% 10%;
+    display: flex;
+    justify-content: space-between;
+    background: linear-gradient(-60deg, #08a9ff 5%, #2693d7 30%, #048eff 70%);
+}
+
+.anotherWrap {
+    background: linear-gradient(-60deg, #9961ef 5%, #894ee1 30%, #5e00ff 70%);
+}
+
+.flexColumns {
+    display: flex;
+    width: 400px;
+    flex-direction: column;
+    gap: 30px;
+}
+
+.title {
+    font-size: 2.2em;
+    font-weight: 600;
+    color: #e5e5e5;
+    letter-spacing: .1em;
+    text-transform: uppercase;
+}
+
+.mapDate {
+    display: flex;
+    gap: 30px;
+}
+
+.wrapSelect {
+    padding: 20px 0;
+    display: flex;
+    justify-content: center;
+}
+
+.chart {
+    height: 80vh;
+    min-height: 500px;
+    max-height: 1200px;
+    width: 100%;
+}
+
+.between {
+    height: 10px;
+    border: 2px solid #000000;
+    background: #040436;
+}

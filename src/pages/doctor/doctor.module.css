@@ -1,0 +1,88 @@
+.personalInfo {
+    padding: 5% 10%;
+    background: linear-gradient(-60deg, #08a9ff 5%, #2693d7 30%, #048eff 70%);
+}
+
+.title {
+    font-size: 2.5em;
+    text-transform: uppercase;
+    color: white;
+    font-weight: 600;
+    margin-bottom: 40px;
+    text-align: center;
+}
+
+
+.inputGroup {
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    gap: 30px;
+}
+
+.inputGroup > div {
+    width: 100%;
+}
+
+.link {
+    margin-top: 20px;
+    text-align: center;
+    font-size: 2em;
+    color: #dcdbdb;
+    letter-spacing: .1em;
+    cursor: pointer;
+    transition: all .3s ease-in-out;
+}
+
+.link:hover {
+    color: #ffffff;
+}
+
+.customers {
+    padding: 5% 3%;
+    background: linear-gradient(-60deg, #9961ef 5%, #894ee1 30%, #5e00ff 70%);
+}
+
+.buttons {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 30px;
+}
+
+.sectionWrap {
+    display: inline-flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.section {
+    display: flex;
+    align-items: center;
+    box-shadow: none;
+    gap: 30px;
+}
+
+.btn {
+    color: white;
+    border: 1px solid white;
+    cursor: pointer;
+    padding: 10px 20px;
+    font-size: 1.3em;
+    letter-spacing: .05em;
+    border-radius: 7px;
+    transition: all .3s ease-in-out;
+}
+
+.btn:hover {
+    background: white;
+    color: #262626;
+}
+
+.disabled {
+    opacity: .5;
+    pointer-events: none;
+}
+
+.css-1eagnbm-MuiFormControl-root-MuiTextField-root select {
+    color: black;
+}
