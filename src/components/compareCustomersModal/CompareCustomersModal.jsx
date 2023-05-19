@@ -8,8 +8,6 @@ const CompareCustomersModal = ({isOpen, setOpen, testName}) => {
     if (!isOpen)
         return (<></>);
 
-    console.log(isOpen);
-
     return (
         <>
             <ModalWindow isOpen={!!isOpen} setOpen={setOpen}>
@@ -30,13 +28,13 @@ const CompareCustomersModal = ({isOpen, setOpen, testName}) => {
 export const MapComponent = (name, user) => {
     switch (name) {
         case "biochemical":
-            return <Test1 value={user.biochemicalTests.reverse()[0]} userId={user.id}/>;
+            return <Test1 value={user.biochemicalTests.reverse()[0]} user={user}/>;
 
         case "microvessels":
-            return <Test2 value={user.microvesselsTests.reverse()[0]} userId={user.id}/>;
+            return <Test2 value={user.microvesselsTests.reverse()[0]} user={user}/>;
 
         case "arteries":
-            return <Test3 value={user.arteriesTests.reverse()[0]} userId={user.id}/>;
+            return <Test3 value={user.arteriesTests.reverse()[0]} user={user}/>;
         default:
             return;
     }

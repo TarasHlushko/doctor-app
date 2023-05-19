@@ -6,21 +6,30 @@ import {Chart} from "react-charts";
 import {apiEndpoint} from "../../api";
 import {launchError} from "../layout/Layout";
 import {TextField} from "@mui/material";
+import {useParams} from "react-router-dom";
 
 const Account = () => {
     const [user, setUser] = useState(null);
     const [test, setTest] = useState("None");
+    const userId = useParams();
 
     useEffect(() => {
-        apiEndpoint('patients/me')
-            .fetch()
-            .then(res => setUser(res.data))
-            .catch(err => launchError(err));
-    }, [])
+        if (userId)
+            apiEndpoint(`doctors/patient/${userId}`)
+                .fetch()
+                .then(res => setUser(res.data))
+                .catch(err => launchError(err));
+
+        else
+            apiEndpoint('patients/me')
+                .fetch()
+                .then(res => setUser(res.data))
+                .catch(err => launchError(err));
+    }, [userId])
 
     if (!user)
         return (<></>);
-        console.log(user)
+    console.log(user)
     return (
         <>
             <div>

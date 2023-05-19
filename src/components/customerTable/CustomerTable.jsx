@@ -9,17 +9,20 @@ import TablePagination from '@mui/material/TablePagination';
 import TableRow from '@mui/material/TableRow';
 import {Checkbox} from "@mui/material";
 import {useEffect} from "react";
+import {useNavigate} from "react-router-dom";
 
 const columns = [
     {id: 'name', label: "Ім'я Призвіще", minWidth: 250},
-    {id: 'date', label: 'Дата Народження', minWidth: 150, align: 'center'},
-    {id: 'email', label: 'Пошта', minWidth: 150, align: 'center'}
+    {id: 'date', label: 'Хронологічний Вік', minWidth: 150, align: 'center'},
+    {id: 'email', label: 'Пошта', minWidth: 150, align: 'center'},
+    {id: 'link', label: '', minWidth: 150, align: 'center'},
 ];
 
 export const CustomerTable = ({isSelect, click, setComparer, setConfirm, setUser, data}) => {
     const [page, setPage] = React.useState(0);
     const [rowsPerPage, setRowsPerPage] = React.useState(10);
     const [selected, setSelected] = React.useState([]);
+    const navigate = useNavigate();
 
     useEffect(() => {
         if (!isSelect)
@@ -31,7 +34,7 @@ export const CustomerTable = ({isSelect, click, setComparer, setConfirm, setUser
             setComparer(data.filter((value) => selected.includes(value.id)));
             setSelected([]);
         }
-    }, [click])
+    }, [click, data, selected, setComparer])
 
     useEffect(() => {
         setConfirm(selected.length >= 1);
@@ -65,6 +68,17 @@ export const CustomerTable = ({isSelect, click, setComparer, setConfirm, setUser
         setRowsPerPage(+event.target.value);
         setPage(0);
     };
+
+    const navigateToPage = (event, userId) => {
+        event.stopPropagation();
+        navigate(`/patient/${userId}`);
+    }
+
+    const ShowPage = ({userId}) => {
+        return (
+            <div onClick={(event) => navigateToPage(event, userId)}>Переглянути Пацієнта</div>
+        )
+    }
 
     return (
         <Paper sx={{width: '100%', overflow: 'hidden'}}>
@@ -110,8 +124,11 @@ export const CustomerTable = ({isSelect, click, setComparer, setConfirm, setUser
                                                 <Checkbox color="primary" checked={isItemSelected}/>
                                             </TableCell>
                                             <TableCell align="left">{`${row.name} ${row['surname']}`}</TableCell>
-                                            <TableCell align="center">{row.date.join("/")}</TableCell>
+                                            <TableCell align="center">{row.age}</TableCell>
                                             <TableCell align="center">{row.email}</TableCell>
+                                            <TableCell align="center">
+                                                <ShowPage userId={row.id}/>
+                                            </TableCell>
                                         </TableRow>
                                     );
                                 } else
@@ -119,8 +136,11 @@ export const CustomerTable = ({isSelect, click, setComparer, setConfirm, setUser
                                         <TableRow hover key={row.id + 'Select Row'} role="checkbox" tabIndex={-1}
                                                   onClick={() => setUser(row)}>
                                             <TableCell align="left">{`${row.name} ${row['surname']}`}</TableCell>
-                                            <TableCell align="center">{row.date.join("/")}</TableCell>
+                                            <TableCell align="center">{row.age}</TableCell>
                                             <TableCell align="center">{row.email}</TableCell>
+                                            <TableCell align="center">
+                                                <ShowPage userId={row.id}/>
+                                            </TableCell>
                                         </TableRow>
                                     );
                             })}

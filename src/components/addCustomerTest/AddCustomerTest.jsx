@@ -20,20 +20,20 @@ const AddCustomerTest = ({isOpen, setOpen, user}) => {
 
     useEffect(() => {
         if (!component && user)
-            setComponent(<Test1 setEndpoint={setEndpoint} value={{}} userId={user.id}/>);
+            setComponent(<Test1 setEndpoint={setEndpoint} value={{}} user={user}/>);
     }, [component, user])
 
     useEffect(() => {
         if (event) {
             switch (event) {
                 case "Test1":
-                    setComponent(<Test1 setEndpoint={setEndpoint} userId={user.id} value={{}}/>);
+                    setComponent(<Test1 setEndpoint={setEndpoint} user={user} value={{}}/>);
                     break;
                 case "Test2":
-                    setComponent(<Test2 setEndpoint={setEndpoint} userId={user.id} value={{}}/>);
+                    setComponent(<Test2 setEndpoint={setEndpoint} user={user} value={{}}/>);
                     break;
                 case "Test3":
-                    setComponent(<Test3 setEndpoint={setEndpoint} userId={user.id} value={{}}/>);
+                    setComponent(<Test3 setEndpoint={setEndpoint} user={user} value={{}}/>);
                     break;
                 case "Comment":
                     setComponent(<Comment setEndpoint={setEndpoint} userId={user.id}/>);
@@ -99,7 +99,7 @@ const AddCustomerTest = ({isOpen, setOpen, user}) => {
     )
 }
 
-export const Test1 = ({setEndpoint, value, userId}) => {
+export const Test1 = ({setEndpoint, value, user}) => {
     setEndpoint && setEndpoint(`tests/biochemical`);
 
     return (
@@ -116,8 +116,9 @@ export const Test1 = ({setEndpoint, value, userId}) => {
                         <TextField label={"Urea"} name={'urea'} defaultValue={value.urea}/>
                         <TextField label={"Alt"} name={'alt'} defaultValue={value.alt}/>
                         <TextField label={"Alkaine"} name={'alkaine'} defaultValue={value.alkaine}/>
+                        {user && <TextField label={"Вік"} name={'results'} defaultValue={user.age}/>}
                         {value.results && <TextField label={"Результат"} name={'results'} defaultValue={value.results}/>}
-                        <TextField label={"User ID"} name={'patientId'} defaultValue={userId} disabled/>
+                        <TextField label={"User ID"} name={'patientId'} defaultValue={user.id} disabled/>
                     </>
                 )
             }
@@ -125,7 +126,7 @@ export const Test1 = ({setEndpoint, value, userId}) => {
     )
 }
 
-export const Test2 = ({setEndpoint, value, userId}) => {
+export const Test2 = ({setEndpoint, value, user}) => {
     setEndpoint && setEndpoint(`tests/microvessels`);
 
     return (
@@ -139,15 +140,16 @@ export const Test2 = ({setEndpoint, value, userId}) => {
                         <TextField label={"Waist Hips"} name={'waistHips'} defaultValue={value.waistHips}/>
                         <TextField label={"Recovery Speed"} name={'recoverySpeed'} defaultValue={value.recoverySpeed}/>
                         <TextField label={"Platelets"} name={'platelets'} defaultValue={value.platelets}/>
+                        {user && <TextField label={"Вік"} name={'results'} defaultValue={user.age}/>}
                         {value.results && <TextField label={"Результат"} name={'results'} defaultValue={value.results}/>}
-                        <TextField label={"User ID"} name={'patientId'} defaultValue={userId} disabled/>
+                        <TextField label={"User ID"} name={'patientId'} defaultValue={user.id} disabled/>
                     </>
                 )
             }
         </>
     )
 }
-export const Test3 = ({setEndpoint, value, userId}) => {
+export const Test3 = ({setEndpoint, value, user}) => {
     setEndpoint && setEndpoint(`tests/arteries`);
 
     return (
@@ -161,8 +163,9 @@ export const Test3 = ({setEndpoint, value, userId}) => {
                         <TextField label={"Ri"} name={'ri'} defaultValue={value.ri}/>
                         <TextField label={"Imc Bif"} name={'imcBif'} defaultValue={value.imcBif}/>
                         <TextField label={"Imc"} name={'imc'} defaultValue={value.imc}/>
+                        {user && <TextField label={"Вік"} name={'results'} defaultValue={user.age}/>}
                         {value.results && <TextField label={"Результат"} name={'results'} defaultValue={value.results}/>}
-                        <TextField label={"User ID"} name={'patientId'} defaultValue={userId} disabled/>
+                        <TextField label={"User ID"} name={'patientId'} defaultValue={user.id} disabled/>
                     </>
                 )
             }
