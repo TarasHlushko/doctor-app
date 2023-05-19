@@ -71,6 +71,7 @@ export const CustomerTable = ({isSelect, click, setComparer, setConfirm, setUser
 
     const navigateToPage = (event, userId) => {
         event.stopPropagation();
+        console.log(userId);
         navigate(`/patient/${userId}`);
     }
 
@@ -109,7 +110,6 @@ export const CustomerTable = ({isSelect, click, setComparer, setConfirm, setUser
                             .map((row) => {
                                 if (isSelect) {
                                     const isItemSelected = selected.indexOf(row.id) !== -1;
-                                    console.log(row);
                                     return (
                                         <TableRow
                                             hover
