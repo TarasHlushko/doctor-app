@@ -109,6 +109,7 @@ export const CustomerTable = ({isSelect, click, setComparer, setConfirm, setUser
                             .map((row) => {
                                 if (isSelect) {
                                     const isItemSelected = selected.indexOf(row.id) !== -1;
+                                    console.log(row);
                                     return (
                                         <TableRow
                                             hover
