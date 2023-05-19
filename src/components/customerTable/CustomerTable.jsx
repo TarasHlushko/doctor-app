@@ -71,7 +71,6 @@ export const CustomerTable = ({isSelect, click, setComparer, setConfirm, setUser
 
     const navigateToPage = (event, userId) => {
         event.stopPropagation();
-        console.log(userId);
         navigate(`/patient/${userId}`);
     }
 

@@ -11,7 +11,7 @@ import {useParams} from "react-router-dom";
 const Account = () => {
     const [user, setUser] = useState(null);
     const [test, setTest] = useState("None");
-    const userId = useParams();
+    const {userId} = useParams();
 
     useEffect(() => {
         if (userId)
