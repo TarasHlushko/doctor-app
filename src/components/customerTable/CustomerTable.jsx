@@ -34,7 +34,7 @@ export const CustomerTable = ({isSelect, click, setComparer, setConfirm, setUser
             setComparer(data.filter((value) => selected.includes(value.id)));
             setSelected([]);
         }
-    }, [click, data, selected, setComparer])
+    }, [click])
 
     useEffect(() => {
         setConfirm(selected.length >= 1);

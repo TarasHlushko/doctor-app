@@ -29,7 +29,6 @@ const Account = () => {
 
     if (!user)
         return (<></>);
-    console.log(user)
     return (
         <>
             <div>
@@ -198,8 +197,6 @@ const GetChart = ({user, test}) => {
 
     if (!data)
         return (<></>);
-
-    console.log(data);
 
     return (
         <>

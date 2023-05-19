@@ -9,7 +9,6 @@ const Login = () => {
     const navigate = useNavigate();
 
     const signIn = data => {
-        console.log(data);
         apiEndpoint('auth/login', false)
             .post(data)
             .then(res => {
@@ -30,9 +29,9 @@ const Login = () => {
                     <FormElement action={signIn}>
                         <TextField viewName={"Пошта"} name={"email"} validationType={inputTypes.email}/>
                         <TextField viewName={"Пароль"} name={"password"} type={"password"}
-                                 validationType={inputTypes.password}/>
+                                   validationType={inputTypes.password}/>
 
-                
+
                     </FormElement>
                     <div className={styles.signup_link}>
                         Не маєте аккаутна?
